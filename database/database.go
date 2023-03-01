@@ -2,10 +2,8 @@ package database
 
 import (
 	"fmt"
-	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"gmail-clone.wisnu.net/modules"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -17,10 +15,6 @@ var DB *gorm.DB
 func ConnectDatabase() {
 
 	// dsn := "host=localhost user=postgres password=postgres dbname=Gmail_clone port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	err := godotenv.Load(".env")
-	if err != nil {
-        log.Fatalf("Error loading .env file: %s", err)
-    }
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
     os.Getenv("DB_HOST"),
