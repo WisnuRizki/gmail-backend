@@ -17,11 +17,11 @@ func ConnectDatabase() {
 	// dsn := "host=localhost user=postgres password=postgres dbname=Gmail_clone port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
-    os.Getenv("DB_HOST"),
-    os.Getenv("DB_USER"),
-    os.Getenv("DB_PASSWORD"),
-    os.Getenv("DB_NAME"),
-    os.Getenv("DB_PORT"),
+    os.Getenv("PGHOST"),
+    os.Getenv("PGUSER"),
+    os.Getenv("PGPASSWORD"),
+    os.Getenv("PGDATABASE"),
+    os.Getenv("PGPORT"),
     "disable",
     "Asia/Shanghai")
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
